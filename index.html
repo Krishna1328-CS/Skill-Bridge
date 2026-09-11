@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillBridge — Connecting Students, Academia & Industry</title>
+    <meta name="description" content="AI-driven career readiness, institutional analytics, and smart opportunity matching platform." />
+    <script>
+      (function() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var queryTheme = params.get("theme");
+          if (queryTheme === "light" || queryTheme === "dark") {
+            localStorage.setItem("skillbridge-theme", queryTheme);
+            document.documentElement.setAttribute("data-theme", queryTheme);
+            return;
+          }
+          var saved = localStorage.getItem("skillbridge-theme");
+          var theme = saved === "light" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
